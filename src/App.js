@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Toast from "./components/Toast";
+import ToastButton from "./components/ToastButton";
+import ToastMessage from "./components/ToastMessage";
 
 function App() {
+  const msgArray = [
+    {
+      title: "success",
+      text: "Right on! Your account has been updated",
+    },
+    {
+      title: "warning",
+      text: "Hmmm. Something doesn't look right.",
+    },
+    {
+      title: "error",
+      text: "Uh oh! Something went terribly wrong!.",
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Toast message={msgArray[0]}>
+        <ToastMessage message={msgArray[0]} />
+        <ToastButton />
+      </Toast>
+      <Toast message={msgArray[1]}>
+        <ToastMessage message={msgArray[1]} />
+        <ToastButton />
+      </Toast>
+      <Toast message={msgArray[2]}>
+        <ToastMessage message={msgArray[2]} />
+        <ToastButton />
+      </Toast>
+
+      {/*  {msgArray.map((message) => (
+        <Toast message={message} />
+      ))} */}
     </div>
   );
 }
